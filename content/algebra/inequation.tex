@@ -302,6 +302,14 @@
   可以验证等号是可以取到的。
 \end{example}
 
+以下推论在不等式证明中经常会用到
+\begin{inference}
+  设 $a_{i}>0(i=1,2,\ldots,n)$和$b_i>0(i=1,2,\ldots,n)$，有
+  \[ \frac{a_1^2}{b_1}+\frac{a_2^2}{b_2}+\cdots+\frac{a_n^2}{b_n} \geqslant \frac{(a_1+a_2+\cdots+a_n)^{2 }}{b_{1}+b_2+\cdots+b_n} \]
+  取等条件仍然是 $a_i=b_i(i=1,2,\ldots,n)$
+\end{inference}
+其证明很简单，把右边的分母乘到左边，再构造两组数 $\frac{a_i}{\sqrt{b_i}}$和$\sqrt{b_i}$应用柯西不等式即可.
+
 本书倾向于认为在均值不等式、柯西不等式、排序不等式中，排序不等式是最基本的不等式，因为从\ref{sec:polynomial-power-theorem}节利用多项式乘幂定理证明均值不等式的过程中可以看出，均值不等式赖以成立的基础是不等式$x^n+y^n \geqslant x^{n-1}y+xy^{n-1}(n \in N_+)$，而柯西不等式则是得益于不等式$x^2+y^2 \geqslant 2xy$，而这两个简单不等式都是排序不等式的直接推论。
 
 \subsection{切比雪夫(Chebyshev)不等式}
@@ -395,7 +403,19 @@
 
 \subsection{闵可夫斯基(Minkowski)不等式}
 
+先考虑两个$n$维向量，$\bm{x}=(x_1,x_2,\ldots,x_n)$和$\bm{y}=(y_1,y_2,\ldots,y_n)$，把关于二维和向量的不等式推广有
+\[ |\bm{x+y}| \leqslant |\bm{x}| + |\bm{y}| \]
+写成坐标形式就是
+\begin{theorem}{闵可夫斯基不等式}
+  设 $x_i(i=1,2,\ldots,n)$ 和 $y_i(i=1,2,\dots,n)$是两组实数，有
+\[ \sqrt{\sum_{i=1}^n(x_i+y_i)^2} \leqslant \sqrt{\sum_{i=1}^nx_i^2} + \sqrt{\sum_{i=1}^ny_i^2} \]
+等号成立的条件是存在正实数$\lambda>0$，使得$ \frac{x_i}{y_i} = \lambda $ 对 $i=1,2,\ldots,n$ 同时成立(约定分母为零时，分子也为零).
+\end{theorem}
 
+利用数学归纳法，容易推广到 $m$ 组数的形式(参考$m$个$n$维向量之和的模与各个向量的模之和的大小关系):
+\[ \sqrt{\sum_{j=1}^n(\sum_{i=1}^mx_{ij})^2} \leqslant \sum_{i=1}^m \sqrt{\sum_{j=1}^nx_{ij}^2}  \]
+
+如果把根号的次数推广，则有
 \begin{theorem}[闵可夫斯基不等式]
   设$x_i>0, y_i>0 (i=1,2,\ldots,n)$，那么在$p>1$时成立下面的不等式
   \begin{equation}
