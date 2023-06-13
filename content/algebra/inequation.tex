@@ -412,7 +412,29 @@
 等号成立的条件是存在正实数$\lambda>0$，使得$ \frac{x_i}{y_i} = \lambda $ 对 $i=1,2,\ldots,n$ 同时成立(约定分母为零时，分子也为零).
 \end{theorem}
 
-利用数学归纳法，容易推广到 $m$ 组数的形式(参考$m$个$n$维向量之和的模与各个向量的模之和的大小关系):
+\begin{proof}[证明]
+  采用数学归纳法，$n=2$时不等式即为
+  \[ \sqrt{(x_1+y_1)^2+(x_2+y_2)^2} \leqslant \sqrt{(x_1^2+x_2^2)} + \sqrt{(y_1^2+y_2^2)} \]
+  两边平方后容易验证它是正确的.
+
+  假若不等式对$n$的情形已经成立，那么对于 $n+1$ 的情形，左边的平方即是
+  \begin{equation*}
+    \begin{split}
+      \sum_{i=1}^{n+1}(x_{i}+y_{i})^2  & =   \sum_{i=1}^{n}(x_i+y_i)^2 + (x_{n+1}+y_{n+1})^2 \\
+      & \leqslant  \left( \sqrt{\sum_{i=1}^nx_i^2} + \sqrt{\sum_{i=1}^ny_i^2} \right)^2 + (x_{n+1}+y_{n+1})^2 \\
+      & =  \sum_{i=1}^{n+1}x_i^2 + \sum_{i=1}^{n+1}y_i^2 + 2 \sqrt{\sum_{i=1}^nx_i^2\sum_{i=1}^ny_i^2} + 2 x_{n+1}y_{n+1}
+    \end{split}
+  \end{equation*}
+  而右边的平方则是
+  \[ \sum_{i=1}^{n+1}x_i^2 + \sum_{i=1}^{n+1}y_i^2 + 2 \sqrt{\sum_{i=1}^{n+1}x_i^2\sum_{i=1}^{n+1}y_i^2} \]
+  因此只需要证明
+  \[ \sqrt{\sum_{i=1}^nx_i^2\sum_{i=1}^ny_i^2} +  x_{n+1}y_{n+1} \leqslant \sqrt{\sum_{i=1}^{n+1}x_i^2\sum_{i=1}^{n+1}y_i^2} \]
+  两边平方，即是要证
+  \[ 2x_{n+1}y_{n+1}\sqrt{\sum_{i=1}^nx_i^2\sum_{i=1}^ny_i^2} \leqslant x_{n+1}^{2}\sum_{i=1}^ny_i^2 + y_{n+1}^2\sum_{i=1}^nx_i^2 \]
+  这显然成立，因此不等式对于$n+1$的情形也成立.
+\end{proof}
+
+同样利用数学归纳法，容易推广到 $m$ 组数的形式(参考$m$个$n$维向量之和的模与各个向量的模之和的大小关系):
 \[ \sqrt{\sum_{j=1}^n(\sum_{i=1}^mx_{ij})^2} \leqslant \sum_{i=1}^m \sqrt{\sum_{j=1}^nx_{ij}^2}  \]
 
 如果把根号的次数推广，则有
