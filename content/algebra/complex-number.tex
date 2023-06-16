@@ -224,6 +224,14 @@
   \item $\overline{\varepsilon_k}=\varepsilon_{n-k}$
   \item $1+\varepsilon+\varepsilon^2+\cdots+\varepsilon^{n-1}=0$
   \item 有复变量多项式因式分解 $z^n-1=(z-1)(z-\varepsilon)(z-\varepsilon^2)\cdots (z-\varepsilon^{n-1})$
+  \item 单位根的幂方和(下式中 $m \in \mathbb{N}$)
+    \[
+      \sum_{k=0}^{n-1}\varepsilon_k^m =
+      \begin{cases}
+        0, & n \nmid m, \\
+        n, & n \mid m
+      \end{cases}
+    \]
   \end{enumerate}
 \end{property}
 
@@ -248,7 +256,7 @@
   \begin{equation*}
     \begin{split}
       & 2(\cos\theta + \cos 2\theta + \cdots + \cos n \theta)\sin \frac{\theta}{2} \\
-      = & (\sin \frac{3}{2} \theta - \sin  \frac{\theta}{2} ) + (\sin \frac{5}{2}\theta - \sin \frac{3}{2}\theta) + \cdots + (\sin \left(n+\frac{1}{2}\right)\theta - \sin \left(n-\frac{1}{2}\right)\theta) \\
+      = & \left(\sin \frac{3}{2} \theta - \sin  \frac{\theta}{2} \right) + \left(\sin \frac{5}{2}\theta - \sin \frac{3}{2}\theta \right) + \cdots + \left(\sin \left(n+\frac{1}{2}\right)\theta - \sin \left(n-\frac{1}{2}\right)\theta \right) \\
       = & \sin \left(n+\frac{1}{2}\right)\theta - \sin  \frac{\theta}{2}
     \end{split}
   \end{equation*}
