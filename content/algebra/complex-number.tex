@@ -1,0 +1,219 @@
+
+
+
+\section{复数}
+\label{sec:complex-number}
+
+\subsection{复数的引入}
+\label{sec:import-complex-number}
+
+
+
+数系的扩充与解方程密切相关，为了解一元一次方程引入了有理数，数系被扩充为有理数集，为了解二次方程又发现了无理数，由此我们的数系被扩充到了实数集。但在实数范围内，方程$x^2+1=0$仍然无解，于是引入了虚数，虚数与实数一起构成了更加广阔的复数集。
+
+复数集的引入，理由看似比较牵强，但后来的事实表明，很多数学理论在复数范围内都能得到完美的解决，例如代数学基本定理就表明，任何一个关于某未知数的$n$次方程，在复数范围内都有且仅有$n$个根(重根按重数计数)，又例如，有些数列，它的每一项都是整数，然而它的通项，却只能借助复数来表达，又比如，在复数范围内，指数函数将与三角函数产生密切关系，欧拉公式$e^{ix}=\cos{x}+i\sin{x}$便揭示了这一点，而三角函数与双曲函数拥有许多类似的性质，但在实数范围内不容易看出它们有什么内在联系，而在以复变函数领域内将会看到这并不是巧合。诸如此类，许多理论都表明复数具有重大的理论意义，这一点随着我们对高等数学的更多了解，将能有更多体会。
+
+为了解方程$x^2+1=0$，引入一个数$i$，规定$i^2=-1$，因为实数范围内是不可能有某个数的平方是负的，所以这引入的$i$便称为一个\emph{虚数}，并且称它是\emph{虚数单位}。规定虚数可以与实数相加与相乘，并且符合实数运算所满足的交换律、结合律、分配律。
+
+那么将实数与虚数进行混合加法与乘法运算，会有什么结果呢，将$i$与实数$b$相乘得出$bi$，再将$bi$与实数$a$相加得到$a+bi$，这个形式无法继续化简了，它就是复数的一般形式，也就是任意一个复数都具有这种形式，我们就来证明它。
+
+\begin{theorem}
+  将实数与虚数单位$i$进行有限次加法与乘法的混合运算，得出的结果都具有形式$a+bi(a,b\in R)$.
+\end{theorem}
+
+\begin{proof}[证明]
+  只利用加法与乘法，运算对象为实数与虚数单位$i$，那么最终结果是关于$i$的实系数多项式
+  \[ a_ni^n+a_{n-1}i^{n-1} + \cdots + a_2i^2 + a_1i+a_0 \]
+  根据虚数单位$i$的定义，可知其乘幂$i^n$依次循环取值$i,-1,-i,1$，由此便知定理成立。
+\end{proof}
+
+由此，复数都具有形式$z=a+bi(a,b\in R)$，$a$称为它的\emph{实部}，记作$Re(z)$，$b$称为它的虚部，记作$Im(z)$，显然复数$a+bi$与数对$(a,b)$一一对应，于是便与坐标平面上的点一一对应，于是坐标平面上的每一个点都对应着一个复数，于是这平面便被称为\emph{复平面}.
+
+规定，两个复数相等当且仅当它们的实部和虚部分别相等.此外，复数集上没有大小关系。
+
+称 $\sqrt{a^2+b^2}$ 为复数 $z=a+bi$ 的 \emph{模}，记作 $|z|$，即 $|z|=\sqrt{a^2+b^2}$.
+
+称复数$a-bi$为复数$z=a+bi$ 的 \emph{共轭复数}，记作$\overline{z}$，显然，$z$的共轭复数的共轭复数是 $z$，因此$a+bi$与$a-bi$互为共轭,也就是 $\overline{\overline{z}}=z$.
+
+
+\subsection{复数的运算}
+\label{sec:operation-of-complex-number}
+
+设 $z_1=a_1+b_1i$, $z_2=a_2+b_2i$，有加法运算
+\[ z_1+z_2 = (a_1+b_1i)+(a_2+b_2i) = (a_1+a_2)+(b_1+b_2)i \]
+即实部之和为和数的实部，虚部之和为和数的虚部.
+
+同样有减法运算
+\[ z_1-z_2 = (a_1+b_1i)-(a_2+b_2i) = (a_1-a_2)+(b_1-b_2)i \]
+
+对于复数$z=a+bi$与其共轭复数$\overline{z}=a-bi$，易得
+\[ z+\overline{z}=2a=2Re(z), \  z-\overline{z}=2b=2iIm(z) \]
+
+再定义减法为加法的逆运算，那么按照实数的运算定律，有
+\[ (a_1+b_1i) \pm (a_2+b_2i) = (a_1 \pm a_2) + (b_1 \pm b_2)i \]
+这显然也可以推广到任意有限个复数相加的情形，显然，复数的加减法对应着数对的加减法，也就对应着向量的加减法。
+
+不难验证，关于共轭复数有
+\[ \overline{z_1+z_2}=\overline{z_1}+\overline{z_2} \]
+
+关于乘法，有
+\begin{eqnarray*}
+  (a_1+b_1i)(a_2+b_2i) & = & a_1a_2+(a_1b_2+a_2b_1)i + b_1b_2 i^2 \\
+  & = & (a_1a_2-b_1b_2) + (a_1b_2+a_2b_1)i
+\end{eqnarray*}
+
+将复数$z=a+bi$与其共轭复数$\overline{z}=a-bi$相乘，有
+\[ z\overline{z}=(a+bi)(a-bi)=a^2-(bi)^2=a^2+b^2 = |z|^2 \]
+即复数的模的平方，等于它与其共轭之乘积(这必然会是个实数).
+
+同样规定除法为乘法的逆运算，有
+\begin{eqnarray*}
+  \frac{a_1+b_1i}{a_2+b_2i} & = & \frac{(a_1+b_1i)(a_2-b_2i)}{(a_2+b_2i)(a_2-b_2i)} \\
+  & = & \frac{(a_1a_2+b_1b_2)+(b_1a_2-a_1b_2)i}{a_2^2+b_2^2}
+\end{eqnarray*}
+
+同样可以验证
+\[ \overline{z_1z_2} = \overline{z_1} \cdot \overline{z_2}, \  \overline{\left( \frac{z_1}{z_2} \right)} = \frac{\overline{z_1}}{\overline{z_2}} \]
+
+复数乘法与除法的公式不便于记忆，因此实际计算时，直接计算反而更加容易. 稍后我们将看到，将复数表达为三角形式后，乘法与除法将是相当的直观和简洁，有着明显的几何意义.
+
+\begin{example}[从数对引入复数]
+  我们从另一角度引入复数，实数对应着数轴上的点，属于一维数，我们认为经过推广后的复数为二维数，它与坐标平面上的点$(a,b)$一一对应，即复数$z$就是一个数对$(a,b)$，当$b=0$时，它就是实数，即复数$(a,0)$就是实数$a$，现在定义加法如下: 若$z_1=(a_1,b_1)$，$z_2=(a_2,b_2)$，则
+  \[ z_1 + z_2 = (a_1 + a_2, b_1 + b_2) \]
+  再定义复数的乘法是
+  \[ z_1z_2 = (a_1a_2-b_1b_2,a_1b_2+a_2b_1) \]
+  在这定义下，显然加法和乘法都满足交换律，且乘法对于加法的分配律也是容易验证的，此外，容易验证
+  \[ (a,b)(1,0) = (a,b) \]
+  即复数$(1,0)$(即实数1)在复数范围内仍然是乘法的单位元。还可以验证
+  \[ (a,b) = (a,0)(1,0) + (b,0)(0,1)  \]
+  即任意实数都经由两个复数单位$(1,0)$与$(0,1)$的实系数线性组合来表出，于是记纵轴上的单位复数$(0,1)$为$i$，则上式可以简写为$(a,b)=a+bi$，这样，我们从数对出发，通过引入加法和乘法的定义也引出了复数的概念。
+\end{example}
+
+\subsection{复数的三角形式}
+\label{sec:triangle-form-of-complex-number}
+
+
+
+利用变换$x=r\cos{\theta}$，$y=r\sin{\theta}$，复数$z=a+bi$可以改写为
+\[ z=r(\cos{\theta}+i\sin{\theta}) \]
+这称为复数的三角形式，其中$r=\sqrt{x^2+y^2}$为复数的模，即 $r=|z|$，角$\theta$称为这复数的\emph{辐角}，记作$Arg(z)$，由于三角函数的周期性，将满足$0\leqslant \theta < 2\pi$的那个辐角称为$z$的\emph{辐角主值}，记作$arg(z)$.
+
+显然，如果两个复数相等，当且仅当它们的模相等，并且它们辐角集合相等。
+
+我们看一下在这种形式下复数的乘除法运算:
+\begin{eqnarray*}
+  &&  r_1(\cos{\theta_1}+i\sin{\theta_1}) \cdot r_2(\cos{\theta_2}+i\sin{\theta_2}) \\
+  & = & r_1r_2[(\cos{\theta_1}\cos{\theta_2}-\sin{\theta_1}\sin{\theta_2})+(\cos{\theta_1}\sin{\theta_2}+\cos{\theta_2}\sin{\theta_1})i] \\
+  & = & r_1r_2(\cos{(\theta_1+\theta_2)}+i\sin{(\theta_1+\theta_2)})
+\end{eqnarray*}
+而
+\begin{eqnarray*}
+  &&  \frac{r_1(\cos{\theta_1}+i\sin{\theta_1})}{r_2(\cos{\theta_2}+i\sin{\theta_2})} \\
+  & = & \frac{r_1(\cos{\theta_1}+i\sin{\theta_1}) \cdot r_2(\cos{\theta_2}-i\sin{\theta_2})}{r_2(\cos{\theta_2}+i\sin{\theta_2}) \cdot r_2(\cos{\theta_2}-i\sin{\theta_2})} \\
+  & = & \frac{r_1r_2[(\cos{\theta_1}\cos{\theta_2}+\sin{\theta_1}\sin{\theta_2})+i(\sin{\theta_1}\cos{\theta_2}-\cos{\theta_1}\sin{\theta_2})]]}{r_2^2(\cos^2{\theta_2}+\sin^2{\theta_2})} \\
+  & = & \frac{r_1}{r_2}[\cos{(\theta_1-\theta_2)+i\sin{(\theta_1-\theta_2)}}]
+\end{eqnarray*}
+
+可见两个复数相乘除，就是将两个复数的模相乘除得到乘积或商的模，两个复数的辐角相加减得到乘积或商的辐角，这与向量的乘法(无论内积还是外积)不再一致，复数乘法在三角形式下变得相当简单，而且这显然可以推广到任意有限个复数相乘的情形。
+
+\begin{example}[利用共轭复数证明余弦定理]
+  取复数$z_1=r_1(\cos{\theta_1}+i\sin{\theta_1})$，$z_2=r_2(\cos{\theta_2}+i\sin{\theta_2})$，则有
+  \[ z_1\overline{z_2} = r_1r_2(\cos{(\theta_1-\theta_2)+i\sin{(\theta_1-\theta_2)}}) \]
+  因此，$z_1\overline{z_2}$的实数部分就是$z_1$与$z_2$两个复数对应的两个向量的内积，同理$\overline{z_1}z_2$的实数部分也是这内积，所以这内积等于
+  \[ \frac{1}{2}(z_1\overline{z_2}+\overline{z_1}z_2) \]
+  由恒等式
+  \[ (z_1-z_2)(\overline{z_1}-\overline{z_2})= z_1\overline{z_1} + z_2\overline{z_2} -(z_1\overline{z_2}+\overline{z_1}z_2) \]
+  左边就是$|z_1-z_2|^2$，右边前两项分别是$|z_1|^2$和$|z_2|^2$，最后的两项就是$z_1$与$z_2$对应两个向量的内积的2倍，于是便得出余弦定理
+  \[ |z_1-z_2|^2 = |z_1|^2+|z_2|^2-2|z_1||z_2|\cos{(\theta_1-\theta_2)} \]
+\end{example}
+
+\subsection{复数的乘方与棣莫弗公式}
+\label{sec:demoivre-formual}
+
+
+更特别的是复数的乘幂，容易知道
+\begin{equation}
+  \label{eq:de-moivre-formula}
+  [r(\cos{\theta}+i\sin{\theta})]^n = r^n(\cos{n\theta}+i\sin{n\theta})
+\end{equation}
+这就是复数乘幂的\emph{棣莫弗公式}.
+
+\begin{example}[正余弦的$n$倍角公式与切比雪夫多项式]
+  利用棣莫弗公式，我们可以得到正余弦的$n$倍角公式，在棣莫弗公式中令$r=1$，得
+  \[ \cos{n\theta}+i\sin{n\theta} = (\cos{\theta}+i\sin{\theta})^n \]
+  将右边利用二项式定理展开，得
+  \[ \cos{n\theta}+i\sin{n\theta} = \sum_{k=0}^n C_n^k i^k \cos^{n-k}{\theta}\sin^k{\theta} \]
+  当$k$为偶数时，求和中的通项变为实数，当$k$为奇数时，则它为虚数，据此可以将上式右端的实数和虚部分开
+  \begin{eqnarray*}
+   && \cos{n\theta}+i\sin{n\theta}  \\
+    & = & \sum_{0 \leqslant 2r \leqslant n}^n (-1)^rC_n^{2r} \cos^{n-2r}{\theta}\sin^{2r}{\theta} + i\sum_{0 \leqslant 2r+1 \leqslant n}(-1)^rC_n^{2r+1} \cos^{n-2r-1}{\theta}\sin^{2r+1}{\theta} 
+  \end{eqnarray*}
+  于是得到
+  \begin{eqnarray}
+    \label{eq:cos-sin-of-n-theta}
+    \cos{n\theta} & = & \sum_{0 \leqslant 2r \leqslant n}^n (-1)^rC_n^{2r} \cos^{n-2r}{\theta}\sin^{2r}{\theta} \\
+    \sin{n\theta} & = & \sum_{0 \leqslant 2r+1 \leqslant n}(-1)^rC_n^{2r+1} \cos^{n-2r-1}{\theta}\sin^{2r+1}{\theta}
+  \end{eqnarray}
+  这就是余弦和正弦的$n$倍角公式.
+
+  根据这公式，由于$\cos{n\theta}$的每一项中的正弦的指数都是偶数，所以都可以化为余弦，于是$\cos{n\theta}$可以展开为$\cos{\theta}$的$n$次多项式，这就是\emph{第一类切比雪夫多项式}，即
+  \[ T_n(x) = \sum_{0 \leqslant 2r\leqslant n}(-1)^rC_n^{2r}x^{n-2r}(1-x^2)^r \]
+  在$\sin{n\theta}$的展式中，$\sin{\theta}$的次数都是奇数，所以$\dfrac{\sin{(n+1)\theta}}{\sin{\theta}}$也可以展开为$\cos{\theta}$的$n$次多项式，这就是\emph{第二类切比雪夫多项式}，即
+  \[ U_n(x)=\sum_{0 \leqslant 2r+1 \leqslant n+1}(-1)^rC_{n+1}^{2r+1}x^{n-2r}(1-x^2)^r \]
+  关于切比雪夫多项式的更多讨论参见\cite{elementary-math-notes}.
+\end{example}
+
+\begin{example}
+  现在来求和下面两个表达式
+  \begin{eqnarray*}
+    A_n & = & 1 + r\cos{\theta} + r^2\cos{2\theta}+\cdots+r^n\cos{n\theta} \\
+    B_n & = & r\sin{\theta} + r^2\sin{2\theta} + \cdots + r^n\sin{n\theta}
+  \end{eqnarray*}
+  令$z=r(\cos{\theta}+i\sin{\theta})$，则
+  \begin{eqnarray*}
+   && A_n+iB_n \\ 
+   & = & 1 + r(\cos{\theta}+i\sin{\theta})+r^2(\cos{2\theta}+i\sin{2\theta})+\cdots+r^n(\cos{n\theta}+i\sin{n\theta}) \\
+   & = & 1+ z + z^2 + \cdots + z^n \\
+   & = & \frac{1-z^{n+1}}{1-z} \\
+    & = & \frac{1-r^{n+1}(\cos{(n+1)\theta}+i\sin{(n+1)\theta})}{1-r(\cos{\theta}+i\sin{\theta})} \\
+       & = & \frac{1-r^{n+1}(\cos{(n+1)\theta}+i\sin{(n+1)\theta})}{1-r(\cos{\theta}+i\sin{\theta})} \cdot \frac{1-r\cos{\theta}+ir\sin{\theta}}{1-r\cos{\theta}+ir\sin{\theta}} \\
+   & = & \frac{1-r\cos{\theta}+r^{n+2}\cos{n\theta}-r^{n+1}\cos{(n+1)\theta}}{1-2r\cos{\theta}+r^2} + \\
+    && i \frac{r\sin{\theta}+r^{n+2}\sin{n\theta}-r^{n+1}\sin{(n+1)\theta}}{1-2r\cos{\theta}+r^2}
+  \end{eqnarray*}
+  于是比较实部和虚部可得
+  \begin{eqnarray*}
+    A_n & = & \frac{1-r\cos{\theta}+r^{n+2}\cos{n\theta}-r^{n+1}\cos{(n+1)\theta}}{1-2r\cos{\theta}+r^2} \\
+    B_n & = & \frac{r\sin{\theta}+r^{n+2}\sin{n\theta}-r^{n+1}\sin{(n+1)\theta}}{1-2r\cos{\theta}+r^2}
+  \end{eqnarray*}
+\end{example}
+
+\subsection{复数的开方与单位根}
+\label{sec:n-th-root-of-one}
+
+
+
+有了棣莫弗公式，我们来讨论一下复数的开方。
+
+记$z=r(\cos{\theta}+i\sin{\theta})$，现在来求它的$n$次方根，设$z'=r'(cos{\theta'+i\sin{\theta'}})$是它的一个$n$次方根，按棣莫弗公式，应有
+\[ z'^n=r'^n(\cos{n\theta'}+i\sin{n\theta'}) \]
+因为$z'^n=z$，所以有$r'^n=r$，以及$n\theta'=\theta+2m\pi(m \in Z)$，即
+\[ r'=\sqrt[n]{r}, \  \theta'=\frac{\theta+2m\pi}{n}(m=0,1,\ldots,n-1) \]
+或者写成
+\[ \sqrt[n]{z}=\sqrt[n]{r} \left( \cos{\frac{\theta+2m\pi}{n}}+i\sin{\frac{\theta+2m\pi}{n}} \right), \  (m=0,1,\ldots,n-1) \]
+根据周期性，可知$z$的$n$次方根正好有$n$个，它们均匀分布在复平面上以原点为圆心，以$\sqrt[n]{|z|}$为半径的圆上，于是在复数范围内，任何数都可以开$n$次方.
+
+
+特别的是当$z=1$时，对1进行开$n$次方，因为$1=\cos{0}+i\sin{0}$，于是得它的根
+\[ \varepsilon_i = \cos{\frac{2i\pi}{n}}+i\sin{\frac{2i\pi}{n}}, \  i=0,1,\ldots,n-1 \]
+显然 $\varepsilon_0=1$，它们均匀分布在单位圆上，辐角依次为 $0$, $\frac{2\pi}{n}$, $2\cdot \frac{2\pi}{n}$, $\ldots$，$(n-1)\cdot \frac{2\pi}{n}$.
+
+这些根$\varepsilon_i(i=0,1,\ldots,n-1)$称为\emph{$n$次单位根}，根据复数乘法可以知道
+\[ \varepsilon_{i+1} = \varepsilon_1 \varepsilon_i \]
+实际上更一般的结论是
+\[ \varepsilon_i \varepsilon_j = \varepsilon_{i+j} \]
+这里规定 $\varepsilon_{n+i}=\varepsilon_{i}$以解决下标越界问题.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../elementary-math-note"
+%%% End:
