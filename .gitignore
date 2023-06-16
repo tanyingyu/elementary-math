@@ -1,6 +1,5 @@
 .*
 *.pdf
-!elementary-math-note.pdf
 *.swp
 *.log
 *.aux
