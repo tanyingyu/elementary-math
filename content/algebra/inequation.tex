@@ -310,6 +310,24 @@
 \end{inference}
 其证明很简单，把右边的分母乘到左边，再构造两组数 $\frac{a_i}{\sqrt{b_i}}$和$\sqrt{b_i}$应用柯西不等式即可.
 
+\begin{example}
+  假设 $x,y,z \geqslant 1$，且
+  \[ \frac{1}{x} + \frac{1}{y} + \frac{1}{z} = 2 \]
+  证明
+  \[ \sqrt{x+y+z} \geqslant \sqrt{x-1} + \sqrt{y-1} + \sqrt{z-1} \]
+  \begin{proof}[证明]
+    记 $a=\sqrt{x-1}$, $b=\sqrt{y-1}$, $c=\sqrt{z-1}$，则条件中的等式即为
+    \[ \frac{1}{1+a^2} + \frac{1}{1+b^2} + \frac{1}{1+c^2} = 2 \]
+    要证明的不等式即为
+    \[ 3+a^2+b^2+c^2 \geqslant (a+b+c)^2 \]
+    由柯西不等式的推论，有
+    \[ \frac{a^2}{1+a^2} + \frac{b^2}{1+b^2} + \frac{c^2}{1+c^2} \geqslant \frac{(a+b+c)^{2}}{3+a^2+b^2+c^2} \]
+    另一方面有
+    \[ \frac{a^2}{1+a^2} + \frac{b^2}{1+b^2} + \frac{c^2}{1+c^2} = 3-\left( \frac{1}{1+a^2} + \frac{1}{1+b^2} + \frac{1}{1+c^2} \right) = 1 \]
+    因此得证.
+  \end{proof}
+\end{example}
+
 本书倾向于认为在均值不等式、柯西不等式、排序不等式中，排序不等式是最基本的不等式，因为从\ref{sec:polynomial-power-theorem}节利用多项式乘幂定理证明均值不等式的过程中可以看出，均值不等式赖以成立的基础是不等式$x^n+y^n \geqslant x^{n-1}y+xy^{n-1}(n \in N_+)$，而柯西不等式则是得益于不等式$x^2+y^2 \geqslant 2xy$，而这两个简单不等式都是排序不等式的直接推论。
 
 \subsection{切比雪夫(Chebyshev)不等式}
