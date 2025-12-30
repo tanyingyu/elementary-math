@@ -14,17 +14,20 @@ TEMPFILECLASS=\
 *.out \
 
 LATEXCMD=xelatex
+#LATEXCMD=lualatex
 
-LATEXOPTIONS=-file-line-error   -interaction=nonstopmode
+LATEXOPTIONS=-file-line-error -synctex=1 -interaction=nonstopmode
 
 PDFVIEWER=evince
 
+$(MAIN).pdf : prev
+	$(LATEXCMD) $(LATEXOPTIONS) $(TEXMAINDOC)
+
+prev:
+	$(LATEXCMD) $(LATEXOPTIONS) $(TEXMAINDOC)
+
 viewpdf : $(MAIN).pdf
 	$(PDFVIEWER) $(MAIN).pdf &
-
-$(MAIN).pdf :
-	$(LATEXCMD) $(LATEXOPTIONS) $(TEXMAINDOC)
-	$(LATEXCMD) $(LATEXOPTIONS) $(TEXMAINDOC)
 
 clean :
 	rm -f $(TEMPFILECLASS)
