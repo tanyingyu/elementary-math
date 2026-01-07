@@ -5,15 +5,44 @@
 \subsection{容斥原理}
 \label{subsec:inclusion-exclusion-principle}
 
-\begin{principle}[容斥原理]
+\begin{myprinciple}{容斥原理}{}{\label{thm:inclusion-exclusion-principle}}
   用$|A|$表示集合$A$的元素个数，则多个集合的并集的元素个数是:
   \begin{eqnarray}
     \label{eq:inclusion-exclusion-principle}
     \left| \bigcup_{i=1}^nA_i \right| & = & \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n} \left| A_i \cap A_j \right| +\sum_{1 \leqslant i <j <k \leqslant n} \left| A_i\cap A_j \cap A_k \right| \nonumber \\
  & & -\cdots+(-1)^{n+1} \left| \bigcap_{i=1}^n A_i \right|
   \end{eqnarray}
-\end{principle}
+\end{myprinciple}
 容斥原理的含义借助韦恩图是显而易见的，其证明用数学归纳法即可，这里从略。
+
+两个集合的容斥原理：
+\begin{equation}
+  \left | A \cup B \right | = \left | A \right | + \left | B \right | - \left | A \cap B \right |
+\end{equation}
+
+三个集合的容斥原理：
+\begin{equation}
+  \left | A \cup B \cup C \right | = \left | A \right | + \left | B \right | + \left | C \right | - \left | A \cap B \right | - \left | A \cap C \right | - \left | B \cap C \right | + \left | A \cap B \cap C \right |
+\end{equation}
+
+$n$个集合的容斥原理：
+
+要计算几个集合并集的大小，我们要先将所有单个集合的大小计算出来，然后减去所有两个集合相交的部分，再加回所有三个集合相交的部分，
+再减去所有四个集合相交的部分，依此类推，一直计算到所有集合相交的部分。最终得到公式：
+\begin{eqnarray}
+  \left| \bigcup_{i=1}^nA_i \right| & = & \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n} \left| A_i \cap A_j \right| +\sum_{1 \leqslant i <j <k \leqslant n} \left| A_i\cap A_j \cap A_k \right| \nonumber \\
+ & & -\cdots+(-1)^{n+1} \left| \bigcap_{i=1}^n A_i \right|
+\end{eqnarray}
+
+又可写成：
+\begin{equation}
+\left|\bigcup_{i=1}^n A_i\right| = \sum_{k = 1}^n (-1)^{k+1} \left( \sum_{1 \leq i_1 < \cdots < i_k \leq n} | A_{i_1} \cap \cdots \cap A_{i_k} | \right)
+\end{equation}
+
+或：
+\begin{equation}
+\left|\bigcup_{i=1}^n A_i\right| = \sum_{\emptyset\neq J\subseteq\{1,2,\ldots,n\}}(-1)^{|J|-1} \Biggl|\bigcap_{j\in J} A_j\Biggr|.
+\end{equation}
 
 \begin{figure}[htbp]
   \centering
@@ -22,6 +51,10 @@
 \label{fig:inclusion-exclusion-principle}
 \end{figure}
 
+\begin{coreidea}{容斥原理}
+计算总数时，先简单相加，然后减去重复部分，如果减多了，再把它们加回来，
+如此交替进行，直到每个元素都被恰好计算一次。
+\end{coreidea}
 
 \begin{example}[伯努利(Bernoulli)信封问题]
   \label{example:bernoulli-envelope-solved-by-inc-exclu-principle}
@@ -31,29 +64,33 @@
   \begin{eqnarray*}
  &  &    \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n}|A_i \cap A_j|+\sum_{1 \leqslant i <j <k \leqslant n}|A_i\cap A_j \cap A_k| \\
   &    & -\cdots+(-1)^{n+1}|\cap_{i=1}^nA_i| \\
-   &   = & n (n-1)! - C_n^2(n-2)! + C_n^3(n-3)! - \cdots + (-1)^{n+1}C_n^n0! \\
+   &   = & C_n^1(n-1)! - C_n^2(n-2)! + C_n^3(n-3)! - \cdots + (-1)^{n+1}C_n^n0! \\
     &  = & n!\sum_{i=1}^n(-1)^{i+1}\frac{1}{i!}
   \end{eqnarray*}
   所以从总数$n!$中减去它就得到最后的结果，在$0!=1$的约定下，这结果可以写为:
   \begin{equation}
     \label{eq:bernoulli-envelope-problem-solution}
-    \sum_{i=0}^n(-1)^i \frac{1}{i!}
+    n!\sum_{i=0}^n\frac{(-1)^i}{i!}
   \end{equation}
-
   于是问题得以解决，以后还将介绍利用数列递推方法来解决此问题(见\autoref{example:bernoulli-envelope-solved-by-recursive-method})。
 \end{example}
+\begin{coreidea}{错排概率}
+    当 \(n\) 趋向于无穷大时（即无穷级数），这个表达式的极限值收敛于自然对数的底数 \(e\) 的倒数：
+     \[\lim _{n\rightarrow \infty }\sum _{i=0}^{n}\frac{(-1)^{i}}{i!}=\frac{1}{e}\approx 0.36788\]
+    这个级数是泰勒级数（Taylor Series）中 \(e^{x}\) 在 \(x=-1\) 处的展开式。
+  \end{coreidea}
 
 \subsection{数学归纳法}
-\label{subsec:mathematical-induction}
+%\label{subsec:mathematical-induction}
 
-\begin{principle}[第一数学归纳法]
+\begin{myprinciple}{第一数学归纳法}{}{\label{thm:mathematical-induction}}
   设$A$是一个元素都是整数的集合，如果:
   \begin{enumerate}
   \item $1 \in A$.
   \item 如果 $n \in A$，则必有 $ n+1 \in A$.
   \end{enumerate}
   那么对于任何正整数$n$，都有$n \in A$.
-\end{principle}
+\end{myprinciple}
 
 这个原理是显而易见的，它可以用来证明与整数有关的命题$P(n)$，把$A$视为使得命题成立的那些整数的集合，那么如果命题对$n=1$成立，即$P(1)$为真，又如果由$P(n)$成立能推得$P(n+1)$也成立，则命题对于一切正整数就都成立。
 
@@ -71,16 +108,27 @@
   成立，这可以用数学归纳法加以证明，一个特别的情况是，如果实数$x>-1$，则对任意正整数$n$，有
   \[ (1+x)^n \geqslant 1+nx \]
 \end{example}
+\begin{coreidea}{伯努利不等式}
+  复利 vs. 单利
+  \begin{enumerate}
+    \item \((1+x)^{n}\) 完美类比“复利投资”（Compound Interest）。
+      你每年赚取的利息（\(x\)）会被加回本金，明年利息就在“本金+旧利息”的基础上计算。利息再生利息，财富呈指数级增长。
+    \item \(1+nx\) 完美类比“单利投资”（Simple Interest）。
+      你每年赚取的利息（\(x\)）都被取走或单独存放，不会并入本金。你的收益总是基于最初始的本金计算，财富呈线性增长。 
+    \item \( -1 \le x < 0\)，当处于负增长（损失）区域时，线性计算（\(1+nx\)）会更快地把你带入负值深渊，
+      而实际的复利贬值（\((1+x)^{n}\)）由于基数在不断减小，其下降速度反而会放缓。
+  \end{enumerate} 
+\end{coreidea}
 
 除了常用的第一数学归纳法以外，我们还有以下的:
-\begin{principle}[第二数学归纳法]
+\begin{myprinciple}{第二数学归纳法}{}{}
 如果与正整数有关的命题$P(n)$满足:
   \begin{enumerate}
   \item $P(1)$成立;
   \item 由$P(1),P(2),\dots,P(k)$成立能够推证出$P(k+1)$成立;
   \end{enumerate}
 那么该命题对于一切正整数成立.
-\end{principle}
+\end{myprinciple}
 有些命题在递推过程中，依赖的是前面的所有结论而非仅仅依赖前一个结论，此时第二数学归纳法就非常适用，例如下面这个例子:
 
 \begin{example}
@@ -112,14 +160,14 @@
   从证明过程中所可以看出，奠基不是从1开始的，而是从2开始的，而且为了证明$P(n+1)$成立，利用了假设$P(n)$和$P(n-1)$成立。
 \end{example}
 
-\begin{principle}[倒推归纳法]
+\begin{myprinciple}{倒推归纳法}{}{}
 如果与正整数有关的命题$P(n)$满足:
   \begin{enumerate}
   \item 有无穷多个正整数$n$使命题成立;
   \item 由$P(k)$成立能够推证$P(k-1)$成立;
   \end{enumerate}
 那么该命题对于一切正整数成立。
-\end{principle}
+\end{myprinciple}
 倒推归纳法的原理也是显而易见的，对于任何一个给定的正整数$n$，由于不超过$n$的正整数只有有限个，所以必然存在一个大于$n$的正整数$N$，使得命题$P(N)$成立，再倒推回来，知$P(n)$成立。
 
 \begin{example}[均值不等式]
@@ -151,14 +199,14 @@
 \end{proof}
 \end{example}
 
-\begin{principle}[跳跃数学归纳法]
+\begin{myprinciple}{跳跃数学归纳法}{}{}
   如果与正整数有关的命题$P(n)$满足:
   \begin{enumerate}
   \item $P(1)$,$P(2)$,$\ldots$,$P(m)$成立;
   \item 由$P(k)$成立能够推证$P(k+m)$成立;
   \end{enumerate}
 那么该命题对于一切正整数成立。
-\end{principle}
+\end{myprinciple}
 
 数学归纳法还有其他形式，比如解决对偶性问题（如正余弦）的螺旋归纳法，解决同时与两个正整数相关的命题的二重归纳法等，但它们的道理都是类似的。
 
@@ -199,6 +247,28 @@
 \subsection{抽屉原理}
 \label{sec:drawer-principle}
 
+\subsubsection{定义}
+
+抽屉原理，亦称鸽巢原理（the pigeonhole principle）。它常被用于证明存在性证明和求最坏情况下的解。
+
+\subsubsection{简单情况}
+
+将 \(n+1\) 个物体，划分为 \(n\) 组，那么有至少一组有两个（或以上）的物体。
+
+这个定理看起来比较显然，证明方法考虑反证法：假如每个分组有至多 \(1\) 个物体，那么最多有 \(1 \times n\) 个物体，而实际上有 \( n + 1 \) 个物体，矛盾。
+
+\subsubsection{推广}
+
+将\(n\)个物体，划分为 \(k\) 组，那么至少存在一个分组，含有大于或等于 \( \left \lceil \dfrac{n}{k} \right \rceil \)个物品。
+推广的形式也可以使用反证法证明：若每个分组含有小于 \( \left \lceil \dfrac{n}{k} \right \rceil \)个物体，则其总和 \(S\leq (\left \lceil \dfrac{n}{k} \right \rceil -1 ) \times k=k\left\lceil \dfrac{n}{k} \right\rceil-k < k(\dfrac{n}{k}+1)-k=n \) 矛盾。
+此外，划分还可以弱化为覆盖结论不变。
+
+给定集合 \(S\), 一个 \(S\) 的非空子集构成的簇\(\{A_1,A_2\ldots A_k\}\)
+
+若满足\(\bigcup_{i=1}^k A_i\) 则称为 \(S\) 的一个覆盖（cover）
+若一个覆盖还满足\(i\neq j\to A_i\cap A_j=\varnothing\) 则称为 \(S\) 的一个划分。
+鸽巢原理可以有如下叙述：对于 \(S\) 的一个覆盖 \(\{A_1,A_2\ldots A_k\}\) 有至少一个集合 \(A_i\) 满足
+\(\left\vert A_i \right\vert \geq \left\lceil \dfrac{\left\vert S \right\vert}{k} \right\rceil\)。
 
 
 %%% Local Variables:

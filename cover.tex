@@ -1,10 +1,195 @@
-\addcontentsline{toc}{chapter}{封面}
-%封面
-\begin{center}
-\vspace*{5cm}
-{\LARGE{\textbf{初等数学个人笔记}}}\\[1cm]
-\vspace*{7cm}
-{\songti{zhcosin<zhcosin@163.com>}}\\
-\vspace*{0.3cm}
-2014-05-25
-\end{center}
+% --- 颜色定义 ---
+\definecolor{goldGround}{RGB}{255, 215, 0}    % 金色背景
+\definecolor{royalBlue}{RGB}{0, 35, 102}      % 皇室蓝文字
+\definecolor{mathBlue}{RGB}{52, 152, 219}    % 杨辉三角用蓝
+\definecolor{mathDark}{RGB}{44, 62, 80}      % 深灰色
+
+% --- 1. 为封面设置局部边距 ---
+\newgeometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+\begin{titlepage}
+  \centering
+
+  \begin{tikzpicture}[
+      remember picture, overlay,
+      opacity=0.2, scale=1, rotate=-30,
+      shift={($(current page.north west)+(1.5cm,-2cm)$)},
+      node distance=0.4cm,
+      num/.style={circle, draw, minimum size=0.4cm, font=\sffamily\tiny},
+      prime/.style={num, fill=goldGround, draw=goldGround, thick},
+      composite/.style={num, fill=gray!10, draw=gray!50, text=gray!80},
+      sieve/.style={->, >=Stealth, thick, bend left=25,draw=gray},
+      sieveR/.style={->, >=Stealth, thick, bend right=25,draw=gray}
+    ]
+
+    % 1. 绘制数字序列 (2-18)
+    \foreach \x in {2,...,25} {
+      \node[num] (n\x) at (\x*.9, 0) {\x};
+    }
+
+    \node[anchor=west] at (0,0){};
+
+    % 2. 模拟欧拉筛过程
+
+    % --- i = 2 ---
+    \node[prime] at (n2) {2}; % 2是质数
+    % 筛除：2 * 2 = 4
+    \draw[sieve] (n2) to (n4);
+    \node[composite] at (n4) {4};
+
+    % --- i = 3 ---
+    \node[prime] at (n3) {3}; % 3是质数
+    % 筛除：3 * 2 = 6
+    \draw[sieveR] (n3) to  (n6);
+    \node[composite] at (n6) {6};
+    % 筛除：3 * 3 = 9
+    \draw[sieveR] (n3) to (n9);
+    \node[composite] at (n9) {9};
+
+    % --- i = 4 ---
+    % 4 已是合数，其最小质因子是2
+    % 筛除：4 * 2 = 8
+    \draw[sieve] (n4) to  (n8);
+    \node[composite] at (n8) {8};
+    % 注意：此处 i % p == 0 (4%2==0)，停止筛除，不再筛除 4*3=12
+
+    % --- i = 5 ---
+    \node[prime] at (n5) {5};
+    % 筛除：5 * 2 = 10
+    \draw[sieveR] (n5) to (n10);
+    \node[composite] at (n10) {10};
+    \draw[sieveR] (n5) to (n15);
+    \node[composite] at (n15) {15};
+    \draw[sieveR] (n5) to (n25);
+    \node[composite] at (n25) {25};
+
+    % --- i = 6 ---
+    % 筛除：6 * 2 = 12
+    \draw[sieve] (n6) to (n12);
+    \node[composite] at (n12) {12};
+
+    % --- i = 7 ---
+    \node[prime] at (n7) {7};
+    % 筛除：7 * 2 = 14
+    \draw[sieveR] (n7) to (n14);
+    \node[composite] at (n14) {14};
+    \draw[sieveR] (n7) to (n21);
+    \node[composite] at (n21) {21};
+    
+    % --- i = 8 ---
+    % 筛除：8 * 2 = 16
+    \draw[sieve] (n8) to (n16);
+    \node[composite] at (n16) {16};
+    
+    % --- i = 9 ---
+    % 筛除：9 * 2 = 18
+    \draw[sieveR] (n9) to (n18);
+    \node[composite] at (n18) {18};
+    
+    % --- i = 10 ---
+    % 筛除：10 * 2 = 20
+    \draw[sieve] (n10) to (n20);
+    \node[composite] at (n20) {20};
+
+    % --- i = 11 ---
+    \node[prime] at (n11) {11};
+    % 筛除：11 * 2 = 22
+    \draw[sieveR] (n11) to (n22);
+    \node[composite] at (n22) {22};
+    
+    % --- i = 12 ---
+    % 筛除：12 * 2 = 24
+    \draw[sieve] (n12) to (n24);
+    \node[composite] at (n24) {24};
+
+    \node[prime] at (n13) {13};
+    \node[prime] at (n17) {17};
+    \node[prime] at (n19) {19};
+    \node[prime] at (n23) {23};
+
+  \end{tikzpicture}
+
+
+  % --- 顶部几何图案装饰 ---
+  \begin{tikzpicture}[
+      remember picture,overlay,
+      opacity=.1,
+      shift={($(current page.north)+(5.5cm,-5cm)$)},
+      scale=1.8, rotate=15
+    ]
+      \draw[royalBlue, very thick] (0,0) -- (3,0) -- (0,4) -- cycle;
+      \node at (1.5,-0.3) {$a$};
+      \node at (-0.3,2) {$b$};
+      \node at (1.7,2.2) {$c$};
+  \end{tikzpicture}
+
+  % 核心视觉：空间感杨辉三角 (不使用 scope 嵌套，彻底避免报错) ---
+  % 投影原理：通过设置 x 和 y 的倾斜向量来模拟双轴旋转 (Y轴30°, X轴45°)
+  \begin{tikzpicture}[
+      remember picture, overlay,
+      shift={($(6cm,-9cm)$)},
+      scale=1.3,rotate=-20
+    ]
+    \foreach \n in {0,...,10} {
+
+      \foreach \k in {0,...,\n} {
+        % 准确计算杨辉三角数值
+        %\pgfmathparse{int(round(factorial(\n)/(factorial(\k)*factorial(\n-\k))))}
+        \edef\val{\fpeval{trunc(fact(\n)/(fact(\k)*fact(\n-\k)), 0)}}
+       
+        % 坐标逻辑：在倾斜坐标系下的严谨布局
+        % 我们不再使用 \posX \posY，直接在 node 坐标里写 (\k, \n) 
+        % 这样 TikZ 会自动按照上面定义的 x, y 倾斜向量进行整体投影，绝不散架
+
+        % 选择性点亮：边缘和中轴
+        \pgfmathparse{ (\k == 0 || \k == \n || (\n>0 && \k == \n/2)) ? 1 : 0 }
+        \ifdim \pgfmathresult pt > 0.5pt
+        \tikzset{cellStyle/.style={draw=mathBlue!10, fill=mathBlue!5, text=mathDark!10, thin}}
+        \else
+        \tikzset{cellStyle/.style={draw=mathBlue!10, fill=mathBlue!2, text=mathDark!10, thin}}
+        \fi
+
+        % 基于 (k, n) 绘制。因为 x 和 y 向量已经倾斜，所以图形整体会呈空间感。
+        % (k - n/2) 保证了每一层相对于顶点居中
+        \node at ({(\k - \n/2)}, {-\n}) [
+          cellStyle,
+          opacity=1,%\layerOpacity,
+          regular polygon, regular polygon sides=6, 
+          minimum size=1cm,
+          inner sep=0pt,
+          font=\footnotesize\bfseries,
+          % 这里的 rotate 补偿了坐标轴倾斜，让六边形看起来还是“平放”的
+          rotate=-20
+        ] {
+          % 这里的 rotate 补偿了坐标轴倾斜，使数字水平
+          \rotatebox{-4}{\val}
+        };
+      }
+    }
+  \end{tikzpicture}
+  % --- 金底蓝字绶带标题 ---
+  % 采用 TikZ 直接绘制绶带效果，避免 segmentation 报错
+  \begin{tikzpicture}[ baseline,
+    yshift={-1*\textheight*.382+1.75cm}]
+    % 绶带阴影/折叠部分
+    \fill[goldGround!60!black] (-0.2,-0.2) rectangle (0.5, 3.7);
+    \fill[goldGround!60!black] (13.5,-0.2) rectangle (14.2, 3.7);
+
+    % 主绶带主体
+    \node[
+      fill=goldGround, 
+      draw=goldGround!70!black,
+      minimum width=14cm, 
+      minimum height=3.5cm, 
+      drop shadow={black!40!white},
+      inner sep=0pt
+    ] (ribbon) at (7, 1.75) {
+      \begin{tabular}{c}
+        {\Huge \bfseries \color{royalBlue} 初等数学笔记} \\[0.3cm]
+        {\Large \sffamily \color{royalBlue} Elementary Mathematics Notes}
+      \end{tabular}
+    };
+  \end{tikzpicture} 
+\end{titlepage}
+
+\restoregeometry
+

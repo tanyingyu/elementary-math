@@ -534,8 +534,9 @@
 便得
 \begin{eqnarray*}
   \bm{a} \cdot \bm{b} & = & (x_1 \bm{i} + y_1 \bm{j} + z_1 \bm{k}) \cdot (x_2 \bm{i} + y_2 \bm{j} + z_2 \bm{k}) \\
-                      & = & x_1x_2 \bm{i}^2 + y_1y_2 \bm{j}^2 + z_1z_2 \bm{k}^2 + (x_1y_2+x_2y_1)(\bm{i} \cdot \bm{j}) + (y_1z_2+z_1y_2)(\bm{j} \cdot \bm{k}) + (z_1x_2 + x_1z_2)(\bm{k} \cdot \bm{i}) \\
-  & = & x_1x_2 + y_1y_2+z_1z_2
+                  & = & x_1x_2 \bm{i}^2 + y_1y_2 \bm{j}^2 + z_1z_2 \bm{k}^2 \\
+                  &   & + (x_1y_2+x_2y_1)(\bm{i} \cdot \bm{j}) + (y_1z_2+z_1y_2)(\bm{j} \cdot \bm{k}) + (z_1x_2 + x_1z_2)(\bm{k} \cdot \bm{i}) \\
+                  & = & x_1x_2 + y_1y_2+z_1z_2
 \end{eqnarray*}
 这就是向量内积的坐标表达式，对于平面向量，也有完全类似的结论，只是没有$z$坐标，由此可知
 
@@ -1073,7 +1074,8 @@ $\bm{\varepsilon}_1, \bm{\varepsilon}_2, \ldots,
    \end{array} \right. \]
 那么如果向量 $\bm{a}$ 在基 $\bm{e}_1, \bm{e}_2,
 \ldots, \bm{e}_n$ 下的坐标是 $(a_1, a_2, \ldots,
-a_n)$，则它在基 $\bm{\varepsilon}_1, \bm{\varepsilon}_2,
+a_n)$，\\
+则它在基 $\bm{\varepsilon}_1, \bm{\varepsilon}_2,
 \ldots, \bm{\varepsilon}_n$ 下的坐标显然是
 \[ \bm{a}= \sum_{i = 1}^n a_i \bm{e}_i = \sum_{i = 1}^n \sum_{j =
    1}^n a_i x_{i j} \bm{\varepsilon}_j = \sum_{j = 1}^n \left( \sum_{i =

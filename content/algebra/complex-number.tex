@@ -18,7 +18,7 @@
 那么将实数与虚数进行混合加法与乘法运算，会有什么结果呢，将$i$与实数$b$相乘得出$bi$，再将$bi$与实数$a$相加得到$a+bi$，这个形式无法继续化简了，它就是复数的一般形式，也就是任意一个复数都具有这种形式，我们就来证明它。
 
 \begin{theorem}
-  将实数与虚数单位$i$进行有限次加法与乘法的混合运算，得出的结果都具有形式$a+bi(a,b\in R)$.
+  将实数与虚数单位$i$进行有限次加法与乘法的混合运算，得出的结果都具有形式$a+bi(a,b\in R)$。
 \end{theorem}
 
 \begin{proof}[证明]
@@ -27,13 +27,13 @@
   根据虚数单位$i$的定义，可知其乘幂$i^n$依次循环取值$i,-1,-i,1$，由此便知定理成立。
 \end{proof}
 
-由此，复数都具有形式$z=a+bi(a,b\in R)$，$a$称为它的\emph{实部}，记作$Re(z)$，$b$称为它的虚部，记作$Im(z)$，显然复数$a+bi$与数对$(a,b)$一一对应，于是便与坐标平面上的点一一对应，于是坐标平面上的每一个点都对应着一个复数，于是这平面便被称为\emph{复平面}，而虚数单位 $i$ 对应着复平面上的点 $(0,1)$.
+由此，复数都具有形式$z=a+bi(a,b\in R)$，$a$称为它的\emph{实部}，记作$Re(z)$，$b$称为它的虚部，记作$Im(z)$，显然复数$a+bi$与数对$(a,b)$一一对应，于是便与坐标平面上的点一一对应，于是坐标平面上的每一个点都对应着一个复数，于是这平面便被称为\emph{复平面}，而虚数单位 $i$ 对应着复平面上的点 $(0,1)$。
 
-规定，两个复数相等当且仅当它们的实部和虚部分别相等.此外，复数集上没有大小关系。
+规定，两个复数相等当且仅当它们的实部和虚部分别相等。此外，复数集上没有大小关系。
 
-称 $\sqrt{a^2+b^2}$ 为复数 $z=a+bi$ 的 \emph{模}，记作 $|z|$，即 $|z|=\sqrt{a^2+b^2}$.
+称 $\sqrt{a^2+b^2}$ 为复数 $z=a+bi$ 的 \emph{模}，记作 $|z|$，即 $|z|=\sqrt{a^2+b^2}$。
 
-称复数$a-bi$为复数$z=a+bi$ 的 \emph{共轭复数}，记作$\overline{z}$，显然，$z$的共轭复数的共轭复数是 $z$，因此$a+bi$与$a-bi$互为共轭,也就是 $\overline{\overline{z}}=z$.
+称复数$a-bi$为复数$z=a+bi$ 的 \emph{共轭复数}，记作$\overline{z}$，显然，$z$的共轭复数的共轭复数是 $z$，因此$a+bi$与$a-bi$互为共轭,也就是 $\overline{\overline{z}}=z$。
 
 
 \subsection{复数的运算}
@@ -41,7 +41,7 @@
 
 设 $z_1=a_1+b_1i$, $z_2=a_2+b_2i$，有加法运算
 \[ z_1+z_2 = (a_1+b_1i)+(a_2+b_2i) = (a_1+a_2)+(b_1+b_2)i \]
-即实部之和为和数的实部，虚部之和为和数的虚部.
+即实部之和为和数的实部，虚部之和为和数的虚部。
 
 同样有减法运算
 \[ z_1-z_2 = (a_1+b_1i)-(a_2+b_2i) = (a_1-a_2)+(b_1-b_2)i \]
@@ -64,7 +64,7 @@
 
 将复数$z=a+bi$与其共轭复数$\overline{z}=a-bi$相乘，有
 \[ z\overline{z}=(a+bi)(a-bi)=a^2-(bi)^2=a^2+b^2 = |z|^2 \]
-即复数的模的平方，等于它与其共轭之乘积(这必然会是个实数).
+即复数的模的平方，等于它与其共轭之乘积(这必然会是个实数)。
 
 同样规定除法为乘法的逆运算，有
 \begin{eqnarray*}
@@ -78,7 +78,7 @@
 借用除法，可以得到复数$z$的共轭为
 \[ \overline{z}=\frac{|z|}{z} \]
 
-复数乘法与除法的公式不便于记忆，因此实际计算时，直接计算反而更加容易. 稍后我们将看到，将复数表达为三角形式后，乘法与除法将是相当的直观和简洁，有着明显的几何意义.
+复数乘法与除法的公式不便于记忆，因此实际计算时，直接计算反而更加容易。 稍后我们将看到，将复数表达为三角形式后，乘法与除法将是相当的直观和简洁，有着明显的几何意义。
 
 \begin{example}[从数对引入复数]
   我们从另一角度引入复数，实数对应着数轴上的点，属于一维数，我们认为经过推广后的复数为二维数，它与坐标平面上的点$(a,b)$一一对应，即复数$z$就是一个数对$(a,b)$，当$b=0$时，它就是实数，即复数$(a,0)$就是实数$a$，现在定义加法如下: 若$z_1=(a_1,b_1)$，$z_2=(a_2,b_2)$，则
@@ -99,7 +99,7 @@
 
 利用变换$x=r\cos{\theta}$，$y=r\sin{\theta}$，复数$z=a+bi$可以改写为
 \[ z=r(\cos{\theta}+i\sin{\theta}) \]
-这称为复数的三角形式，其中$r=\sqrt{x^2+y^2}$为复数的模，即 $r=|z|$，角$\theta$称为这复数的\emph{辐角}，记作$Arg(z)$，由于三角函数的周期性，将满足$0\leqslant \theta < 2\pi$的那个辐角称为$z$的\emph{辐角主值}，记作$arg(z)$.
+这称为复数的三角形式，其中$r=\sqrt{x^2+y^2}$为复数的模，即 $r=|z|$，角$\theta$称为这复数的\emph{辐角}，记作$Arg(z)$，由于三角函数的周期性，将满足$0\leqslant \theta < 2\pi$的那个辐角称为$z$的\emph{辐角主值}，记作$arg(z)$。
 
 显然，如果两个复数相等，当且仅当它们的模相等，并且它们辐角集合相等。
 
@@ -139,7 +139,7 @@
   \label{eq:de-moivre-formula}
   [r(\cos{\theta}+i\sin{\theta})]^n = r^n(\cos{n\theta}+i\sin{n\theta})
 \end{equation}
-这就是复数乘幂的\emph{棣莫弗公式}.
+这就是复数乘幂的\emph{棣莫弗公式}。
 
 \begin{example}[正余弦的$n$倍角公式与切比雪夫多项式]
   利用棣莫弗公式，我们可以得到正余弦的$n$倍角公式，在棣莫弗公式中令$r=1$，得
@@ -157,13 +157,13 @@
     \cos{n\theta} & = & \sum_{0 \leqslant 2r \leqslant n}^n (-1)^rC_n^{2r} \cos^{n-2r}{\theta}\sin^{2r}{\theta} \\
     \sin{n\theta} & = & \sum_{0 \leqslant 2r+1 \leqslant n}(-1)^rC_n^{2r+1} \cos^{n-2r-1}{\theta}\sin^{2r+1}{\theta}
   \end{eqnarray}
-  这就是余弦和正弦的$n$倍角公式.
+  这就是余弦和正弦的$n$倍角公式。
 
   根据这公式，由于$\cos{n\theta}$的每一项中的正弦的指数都是偶数，所以都可以化为余弦，于是$\cos{n\theta}$可以展开为$\cos{\theta}$的$n$次多项式，这就是\emph{第一类切比雪夫多项式}，即
   \[ T_n(x) = \sum_{0 \leqslant 2r\leqslant n}(-1)^rC_n^{2r}x^{n-2r}(1-x^2)^r \]
   在$\sin{n\theta}$的展式中，$\sin{\theta}$的次数都是奇数，所以$\dfrac{\sin{(n+1)\theta}}{\sin{\theta}}$也可以展开为$\cos{\theta}$的$n$次多项式，这就是\emph{第二类切比雪夫多项式}，即
   \[ U_n(x)=\sum_{0 \leqslant 2r+1 \leqslant n+1}(-1)^rC_{n+1}^{2r+1}x^{n-2r}(1-x^2)^r \]
-  关于切比雪夫多项式的更多讨论参见\cite{elementary-math-notes}.
+  关于切比雪夫多项式的更多讨论参见\cite{elementary-number-theory}。
 \end{example}
 
 \begin{example}
@@ -203,16 +203,16 @@
 \[ r'=\sqrt[n]{r}, \  \theta'=\frac{\theta+2m\pi}{n}(m=0,1,\ldots,n-1) \]
 或者写成
 \[ \sqrt[n]{z}=\sqrt[n]{r} \left( \cos{\frac{\theta+2m\pi}{n}}+i\sin{\frac{\theta+2m\pi}{n}} \right), \  (m=0,1,\ldots,n-1) \]
-根据周期性，可知$z$的$n$次方根正好有$n$个，它们均匀分布在复平面上以原点为圆心，以$\sqrt[n]{|z|}$为半径的圆上，于是在复数范围内，任何数都可以开$n$次方.
+根据周期性，可知$z$的$n$次方根正好有$n$个，它们均匀分布在复平面上以原点为圆心，以$\sqrt[n]{|z|}$为半径的圆上，于是在复数范围内，任何数都可以开$n$次方。
 
 
 特别的是当$z=1$时，对1进行开$n$次方，因为$1=\cos{0}+i\sin{0}$，于是得它的根
 \[ \varepsilon_i = \cos{\frac{2i\pi}{n}}+i\sin{\frac{2i\pi}{n}}, \  i=0,1,\ldots,n-1 \]
-显然 $\varepsilon_0=1$，它们均匀分布在单位圆上，辐角依次为 $0$, $\frac{2\pi}{n}$, $2\cdot \frac{2\pi}{n}$, $\ldots$，$(n-1)\cdot \frac{2\pi}{n}$.
+显然 $\varepsilon_0=1$，它们均匀分布在单位圆上，辐角依次为 $0$, $\frac{2\pi}{n}$, $2\cdot \frac{2\pi}{n}$, $\ldots$，$(n-1)\cdot \frac{2\pi}{n}$。
 
 这些根$\varepsilon_i(i=0,1,\ldots,n-1)$称为\emph{$n$次单位根}，如果记 $\varepsilon=\varepsilon_1$，那么容易发现，这 $n$ 个根实际上就是
 \[ 1, \varepsilon, \varepsilon^2, \ldots, \varepsilon^{n-1} \]
-而 $\varepsilon_k=\varepsilon^k(k=0,1,\ldots,n-1)$.
+而 $\varepsilon_k=\varepsilon^k(k=0,1,\ldots,n-1)$。
 
 接下来讨论下有哪些性质，先给出结论
 \begin{property}
@@ -220,7 +220,7 @@
   \begin{enumerate}
   \item $\varepsilon^n=1=\varepsilon_i^n$
   \item $\varepsilon_k=\varepsilon^k(k=0,1,\ldots,n-1)$
-  \item $\varepsilon_{k+l}=\varepsilon_k\varepsilon_l(k,l\in \mathbb{N})$，这里规定 $\varepsilon_{n+k}=\varepsilon_{k}$以解决下标越界.
+  \item $\varepsilon_{k+l}=\varepsilon_k\varepsilon_l(k,l\in \mathbb{N})$，这里规定 $\varepsilon_{n+k}=\varepsilon_{k}$以解决下标越界。
   \item $\overline{\varepsilon_k}=\varepsilon_{n-k}$
   \item $1+\varepsilon+\varepsilon^2+\cdots+\varepsilon^{n-1}=0$
   \item 有复变量多项式因式分解 $z^n-1=(z-1)(z-\varepsilon)(z-\varepsilon^2)\cdots (z-\varepsilon^{n-1})$
@@ -236,14 +236,14 @@
 \end{property}
 
 \begin{proof}[证明]
-  前三条是容易看出的.
+  前三条是容易看出的。
 
   对于第四条，由
   \[ \overline{\varepsilon_k} = \frac{1}{\varepsilon_k} = \frac{\varepsilon_k^n}{\varepsilon^k} = \varepsilon^{n-k} = \varepsilon_{n-k} \]
 
   对于第五条，由 $\varepsilon^n=1$ 有
   \[ 0 = 1- \varepsilon^n = (1-\varepsilon)(1+\varepsilon+\varepsilon^2+\cdots+\varepsilon^{n-1}) \]
-  第一个因式不可能为零，所以第二个因式必然为零(依据是复数三角形式的乘法)，即$1+\varepsilon+\varepsilon^2+\cdots+\varepsilon^{n-1}=0$.
+  第一个因式不可能为零，所以第二个因式必然为零(依据是复数三角形式的乘法)，即$1+\varepsilon+\varepsilon^2+\cdots+\varepsilon^{n-1}=0$。
 
   实际上第五条可以由以下两个等式得来
   \begin{eqnarray*}

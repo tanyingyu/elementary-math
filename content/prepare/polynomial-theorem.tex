@@ -2,20 +2,318 @@
 \section{组合与二项式定理}
 \label{sec:polynomial-power-theorem}
 
-\subsection{分类计数原理与分步计数原理}
+\subsection{分类计数与分步计数原理}
 \label{sec:principle-of-count-by-categries-or-step}
+分类计数原理（加法原理）和分步计数原理（乘法原理）是解决计数问题的两个基本法则，
+核心区别在于完成一件事情所需的逻辑关系。
+
+
+\subsubsection{分类计数原理（加法原理）}
+定义： 完成一件事有若干种互相独立的、不同的方案，每种方案都能独立完成整件事。
+\begin{enumerate}
+  \item 第 \(1\) 类方案有 \(m_{1}\) 种方法，
+  \item 第 \(2\) 类方案有 \(m_{2}\) 种方法，
+  \item 第 \(k\) 类方案有 \(m_{k}\) 种方法，
+\end{enumerate}
+那么完成这件事共有\(N=m_{1}+m_{2}+\dots +m_{k}\) 种方法，也可以写成：
+\[ N = \sum_{i=1}^k m_k\]
+
+关键词：“或”(or)，表示任选一种方案即可。
+
+适用场景： 当事件可以分解成几个互不重叠的类别时使用。
+
+\begin{example}
+  某班有15名男生和18名女生。现在要从中选择1名学生担任班长。总共有多少种不同的选法?
+
+  \begin{enumerate}
+    \item 选男生成为班长是一种方案（15种方法），
+    \item 选女生成为班长是另一种方案（18种方法）。
+  \end{enumerate}
+这两种方案是独立的，选了男生就不需要选女生，反之亦然。
+  \[ \textit{选法数} = 15 + 18 = 33 (\textit{种}) \]
+
+\end{example}
+
+\subsubsection{分步计数原理（乘法原理）}
+定义： 完成一件事需要经过若干个必不可少的步骤，每个步骤都不能独立完成整件事。
+
+\begin{enumerate}
+  \item 第 \(1\) 步有 \(m_{1}\) 种方法，
+  \item 第 \(2\) 步有 \(m_{2}\) 种方法……
+  \item 第 \(k\) 步有 \(m_{k}\) 种方法，
+\end{enumerate}
+那么完成这件事共有 \(N=m_{1}\times m_{2}\times \dots \times m_{k}\) 种方法，也可以写成：
+\[ N = \prod_{i=1}^k m_k\]
+
+关键词：“和”(and)，表示必须依次完成所有步骤。
+
+适用场景： 当事件需要分解成几个连续的、依赖的步骤时使用。
+
+\begin{example}
+小明要去食堂吃饭，食堂提供3种主菜和2种配菜。他需要选择1种主菜和1种配菜来组成一份完整的午餐。总共有多少种不同的组合?
+
+这件事需要分两步完成：
+  \begin{enumerate}
+    \item 第一步选主菜（3种方法），
+    \item 第二步选配菜（2种方法）。
+  \end{enumerate}
+  这两步缺一不可。
+  \[ \text{总组合数} = 3 \times 2 = 6 (\text{种}) \]
+
+\end{example}
+
+\subsubsection{核心区别总结}
+
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{特性} & \textbf{分类计数原理（加法）} & \textbf{分步计数原理（乘法）} \\
+\midrule
+\textbf{逻辑关系} & “或”(OR)，互相独立 & “和”(AND)，连续且依赖 \\
+\textbf{完成事件} & 任选其中一种方案即可 & 必须完成所有步骤方可 \\
+\textbf{计算方式} & 各方案方法数相加 & 各步骤方法数相乘 \\
+\bottomrule
+\end{tabular}
+
+\subsubsection{总结}
+在解决实际问题时，关键在于准确分析完成任务所需的逻辑是分类还是分步，有些复杂问题可能需要结合使用这两个原理。
 
 \subsection{排列、线排列与圆排列}
 \label{sec:arrangement-to-line-or-circle}
+排列（Permutation）、线排列（Linear Permutation）和圆排列（Circular Permutation）都属于组合数学中关于排序的问题，
+它们的主要区别在于被排列的元素是否形成一个封闭的环状结构，以及如何处理旋转对称性。 
+\subsubsection{排列 (Permutation)}
+“排列”是一个广义术语，指从给定的一组元素中取出指定个数的元素，并按照一定的顺序进行排列。
+关注的核心是“顺序”。符号： \(P_n^k\) 、\(A_n^k\)、 \(P(n,k)\) 或 \(A(n,k)\)（在不同地区和教材中符号不同）。
+
+公式： 从 \(n\) 个不同元素中取出 \(k\) 个元素的排列数是：
+\[P_n^k=\frac{n!}{(n-k)!}\]
+
+\subsubsection{线排列 (Linear Permutation)}
+线排列是最标准的排列形式，即在一条直线上或一个序列中对元素进行排列。这也是我们日常接触到的大多数排列问题。
+定义： 将 \(n\) 个不同的元素排成一行。
+特点： 每一个位置都是独立的、可区分的（有起点和终点）。
+公式：\(n\) 个不同元素的全排列（即 \(k=n\)）总数为：
+\[P_n^n=n!\]
+
+\begin{example}
+将 A、B、C 三个字母排成一行。方法有 \(3!=6\) 种：(ABC, ACB, BAC, BCA, CAB, CBA)。
+\end{example}
+
+\subsubsection{圆排列 (Circular Permutation)}
+
+圆排列（Circular Permutation），又称环排列，是组合数学中的一个重要概念，它研究将一组元素围绕一个圆圈进行排列的方法数。
+定义与核心特点与线排列（将元素排成一行）不同，圆排列的关键特点在于没有起点和终点的区分。
+在圆排列中，如果两个排列可以通过简单地旋转互相得到，那么它们被视为同一种排列。
+
+\begin{example}
+将 A、B、C 三个人围坐在一张圆桌旁：在线排列中，(ABC)、(BCA)、(CAB) 是三种不同的排列。
+
+在圆排列中，这三种排列通过旋转可以互相转换（A坐在B左边，C坐在B右边的相对位置不变），因此它们被视为同一种圆排列。
+\end{example}
+
+圆排列的公式：对于 \(n\) 个互不相同的元素，将它们进行圆排列的总方法数为：
+  \[{P_\textit{圆}}_n^n=(n-1)!\]
+
+公式推导
+
+理解 \((n-1)!\) 的原因通常有两种方式：
+\begin{enumerate}
+  \item 固定一个元素法：我们可以先随意固定其中一个元素（比如A）在圆桌的某个位置上。
+    一旦A的位置确定了，剩下的 \((n-1)\) 个元素就相当于被放在了一条直线上，它们有了一个相对A的“起点”。
+    剩下的 \((n-1)\) 个空位就可以按照线排列的方式进行全排列，即 \((n-1)!\) 种方法。
+  \item 去除重复计数法：假设我们先用线排列的方式排列 \(n\) 个元素，总共有 \(n!\) 种方法。
+    对于任何一个特定的圆排列，它在线排列中都对应着 \(n\) 种不同的写法（例如 ABC 的旋转形式有 ABC, BCA, CAB 等 \(n\) 种）。
+    由于每 \(n\) 个线排列对应同一个圆排列，因此圆排列的总数就是线排列总数除以 \(n\)：\(P_\textbf{圆}(n)=\frac{n!}{n}=(n-1)!\) 
+\end{enumerate}
+
+\begin{example} 
+5个不同的人围着圆桌就座，有多少种不同的坐法?
+
+解：
+
+  使用圆排列公式 \((n-1)!\)，方法数为 \((5-1)!=4!1=24\) 种。
+\end{example}
+
+\subsubsection{特殊情况}
+项链/手镯排列 在某些情况下，如果排列的对象是双向对称的（比如制作项链或手镯的珠子，可以翻转），那么还需要进一步处理对称性。
+对于这种可以翻转的圆排列，方法数为：
+\[\frac{(n-1)!}{2}\]
+因为顺时针的排列（如 ABC）可以通过翻转变成逆时针的排列（如 ACB），两者被视为同一种。
+
+
+\subsubsection{核心区别与联系}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{特性} & \textbf{线排列 (Linear Permutation)} & \textbf{圆排列 (Circular Permutation)} \\
+\midrule
+\textbf{结构} & 直线（有起点/终点） & 圆环（无起点/终点） \\
+\textbf{对称性} & 无旋转对称性 & 具有旋转对称性 \\
+\textbf{旋转判断} & 旋转后视为不同排列 & 旋转后视为相同排列 \\
+\textbf{公式} & $n!$ & $(n-1)!$ \\
+\bottomrule
+\end{tabular}
+
+\subsubsection{总结}
+圆排列的数量之所以是 \(n!/n=(n-1)!\)，是因为在线排列 \(n!\) 种情况中，
+每 \(n\) 种可以通过旋转互相转换的排列，在圆排列中只被计数了一次。
 
 \subsection{组合、若干组合模型}
 \label{sec:combine-and-its-equation}
+
+组合 (Combination) 是组合数学中的核心概念之一，它研究的是从一组元素中选出指定数量的元素，
+而不考虑这些元素被选出后的顺序。
+
+\subsubsection{定义}
+组合关注的是“选择”，与排列关注“顺序”形成鲜明对比。一个组合就是一个集合或子集。
+符号：从 \(n\) 个不同元素中取出 \(k\) 个元素的组合数，通常记为 \(C(n,k)\)、\(C_n^k\)、\({}_nC_k\)或
+使用二项式系数符号\(\binom{n}{k}\)。
+公式：
+\[C_n^k=\frac{P_n^k}{P_k^k}=\frac{P_n^n}{{P_k^k}{P_{n-k}^{n-k}}} = \frac{n!}{k!(n-k)!}\]
+这个公式的逻辑是：先计算排列数 \(P(n,k)\)，然后除以 \(k!\)，因为每 \(k!\) 种不同的排列方式，在组合中只算作一种选择（顺序不重要）。
+
+\begin{example}
+  从 A、B、C 三个字母中选出 2 个字母。
+
+  排列有：AB, BA, AC, CA, BC, CB（共 6 种）。\(P(3,2) = 3!/(3-2)! = 6\)。
+
+  组合有：{A, B}, {A, C}, {B, C}（共 3 种）。\(C(3,2)=\frac{3!}{2!(3-2)!}=3\)。
+
+\end{example}
+
+\subsubsection{若干组合模型 (Several Combination Models)}
+组合模型可以根据元素的可重复性和无重复性来区分。
+这里介绍几种主要的组合模型。
+  \begin{enumerate}
+    \item 模型 A：无重复组合（标准组合）
+      这是最基础的组合模型，即上述的定义。从 \(n\) 个不同的物品中选取 \(k\) 个物品的方案数。
+      公式： \[C_n^k = \frac{n!}{(n-k)!k!} \]
+      应用场景： 抽签、组建委员会、扑克牌发牌等。
+    \item 模型 B：有重复组合 (Combination with Repetition)
+      这个模型允许从 \(n\) 种不同类型的物品中重复选取 \(k\) 次。虽然可以重复选取，但最终形成的结果依然不考虑内部顺序。
+      公式： 从 \(n\) 种物品中选取 \(k\) 个，允许重复，方法数：
+
+      \[ H_n^k = \frac{(n+k-1)!}{(n-1)!k!} \]
+
+  \end{enumerate}
+  \begin{example}
+    商店里有红茶、绿茶、花茶 3 种茶叶 (\(n=3\))，小明想买 5 包茶叶 (\(k=5\))。
+
+    他可以买 5 包红茶，也可以买 2 包红茶、2 包绿茶、1 包花茶等。
+
+    购买组合数：
+    \[ H_3^5 = \frac{7!}{5!2!}=21\] 
+  \end{example}
+
+\subsubsection{“隔板法”解释有重复组合}
+有重复组合通常可以用“隔板法”来理解。
+将 \(k\) 个待选物品看作小球，用 \(n-1\) 块隔板将它们分成 \(n\) 份，
+每一份的数量对应于每种物品被选中的次数。问题转化为在 \(k+(n-1)\) 个位置中选择 \(k\) 个小球（或 \(n-1\) 个隔板）的位置，
+因此得出了公式： \[H_{n}^{k} \textit{或} C_{n+k+1}^{k}\]
+
+
+\begin{example}
+  隔板法解释52张牌选4张，不区分花色。共有几种牌型?
+
+  解：
+  \begin{enumerate}
+    \item 第 1 步：模型转换不区分花色意味着我们只关心点数（A 到 K，共 \(13\) 种）。
+  从 \(13\) 种元素中抽取 \(4\) 张牌，允许重复抽取（例如选到 \(4\) 张 A），这属于可重复组合问题。
+  元素种类 \(n=13\)抽取次数 \(k=4\)
+    \item 第 2 步：隔板法图示，我们将 \(4\) 张牌设为星星（\(\star \)），将 \(13\) 个点数区间由 \(12\) 条隔板（\(|\)）分隔。
+      
+      示例：选中 2张A、1张3、1张K
+
+      A区：放 \(2\) 个 \(\star \)
+
+      2区：空
+
+      3区：放 \(1\) 个 \(\star \)
+
+      4-Q区：全空（共 \(9\) 个区）
+
+      K区：放 \(1\) 个 \(\star \)
+
+      符号排列（含 12 个隔板）：
+      \[\underbrace{\star \star }_{\text{A}}|\underbrace{\quad }_{\text{2}}|\underbrace{\star }_{\text{3}}|\underbrace{\quad }_{\text{4}}|\underbrace{\quad }_{\text{5}}|\underbrace{\quad }_{\text{6}}|\underbrace{\quad }_{\text{7}}|\underbrace{\quad }_{\text{8}}|\underbrace{\quad }_{\text{9}}|\underbrace{\quad }_{\text{10}}|\underbrace{\quad }_{\text{J}}|\underbrace{\quad }_{\text{Q}}|\underbrace{\star }_{\text{K}}\]
+
+      紧凑表示：\(\star \star ||\star ||||||||||\star \)（此处共有 \(4\) 个 \(\star \) 和 \(12\) 个 \(|\)，总计 \(16\) 个位置）
+
+    \item 第 3 步：数学计算在 \(16\) 个位置中，我们只需选出 \(4\) 个位置放置星星（剩下的位置自动填入隔板）：
+      \[C(n+k-1,k)={13+4-1 \choose 4}={16 \choose 4}\]
+
+      利用组合数公式计算：\({16 \choose 4}=\frac{16\times 15\times 14\times 13}{4\times 3\times 2\times 1}=\mathbf{1820}\)
+
+      答案：不区分花色时，从52张牌中任选4张，共有 1820 种不同的牌型（点数组合）。
+
+  \end{enumerate}
+
+\end{example}
 
 \subsection{二项式定理}
 \label{sec:binomial-theorem}
 
 \subsection{组合恒等式}
 \label{sec:combine-identical-equation}
+组合恒等式（Combinatorial Identities）是涉及组合数（二项式系数，通常表示为 \(C_n^k\)）的数学等式。
+这些恒等式在组合数学、概率论、级数求和以及代数证明中非常重要。
+最基础和常用的组合恒等式包括以下几类：
+\begin{enumerate}
+  \item 对称性恒等式 (Symmetry Identity)
+
+    从 \(n\) 个元素中选 \(k\) 个的组合数，等于从 \(n\) 个元素中排除 \(k\) 个（留下 \(n-k\) 个）的组合数。
+    \[C_n^k=C_n^{n-k}\]
+
+   \item 边界条件 (Boundary Conditions)
+
+     \[ C_n^0 = 1 \quad\textit{和}\quad C_n^n=1\]
+     \[ C_n^1 = n \]
+     \[ C_n^k = 0 (k<0 \lor k>n)\]
+
+   \item 帕斯卡恒等式（Pascal's Identity）
+
+     这是构建杨辉三角（Pascal's Triangle）的核心规则，也是许多归纳证明的基础。加法法则：
+    \[C_n^k= C_{n-1}^{k-1} + C_{n-1}^k\]
+    解释： 从 \(n\) 个物品中选 \(k\) 个，可以分为两类：
+    要么选中特定物品 \(A\)，则还需要从剩下 \(n-1\) 个中选 \(k-1\) 个，
+    要么不选中物品 \(A\)，则只需要从剩下 \(n-1\) 个中选 \(k\) 个。
+
+  \item 二项式定理（Binomial Theorem）
+    这是所有组合恒等式中最基础的定理，它将代数展开与组合数联系起来。
+
+    定理本身：\[(x+y)^{n}=\sum _{k=0}^{n}{C_n^k}x^{n-k}y^{k}\]
+
+    \begin{inference}
+    （令 \(x=1,y=1\)）：总子集数
+    \[(1+1)^{n}=2^{n}=\sum _{k=0}^{n}{C_n^k}\]
+    解释： 包含 \(k\) 个元素的子集数量之和等于总的子集数量 \(2^{n}\)。
+    \end{inference}
+
+    \begin{inference}
+     （令 \(x=1,y=-1\)）：交替和
+    \[(1-1)^{n}=0=\sum _{k=0}^{n}{C_n^k}(-1)^{k}={C_n^0}-{C_n^1}+{C_n^2}-\dots \]
+     利用等式为\(0\)，移项易得：
+    \[ C_n^0 + C_n^2 + C_n^3 +  \cdots = C_n^1 + C_n^3 + C_n^5 + \cdots \]
+    解释： 奇数大小的子集数量等于偶数大小的子集数量。
+    \end{inference}
+
+  \item 范德蒙恒等式（Vandermonde's Identity）
+    这个恒等式处理两个不同集合组合的乘积。
+    公式：\[\sum _{k=0}^{r}{C_m^k}{C_n^{r-k}}=C_{m+n}^r\]
+
+    解释： 从 \(m\) 个男性和 \(n\) 个女性中挑选一个由 \(r\) 个人组成的委员会，
+    可以通过从男性中选 \(k\) 个、从女性中选 \(r-k\) 个的所有可能方式加总得到。
+
+  \item 吸收恒等式（Absorption Identity）
+    这个用于简化包含 \(n\) 或 \(k\) 在分母或分子中的表达式。公式：
+    \[{C_n^k} = \frac{n}{k}{C_{n-1}^{k-1}} \quad (k>0)\]
+    变体：\[k{C_n^k}=n{C_{n-1}^{k-1}}\]
+
+  \item 曲棍球棒恒等式（Hockey-stick Identity / Sum of Rows）
+    这个恒等式的形状在杨辉三角中画出来像一根曲棍球棒。
+    公式：\[\sum _{i=r}^{n}{C_i^r}=C_{n+1}^{r+1}\]
+
+    解释： 杨辉三角中沿对角线求和，等于下一行的一个特定元素。
+\end{enumerate}
 
 \subsection{多项式定理}
 \label{sec:polynomial-theorem}
@@ -104,7 +402,8 @@
   \end{equation*}
   这个对称求和是针对$r_1,r_2,\ldots,r_n$这个组合的各种可能的排列的，把右边的对称求和（不要系数）记作$\sigma(r_1,r_2,\ldots,r_n)$，我们来平衡这些次数。
 
-  理想的次数平衡是每个因子的次数$r_i$都是1，如果不是如此的话，因为这$\sum_{i=1}^nr_i=n$，所以必然存在某两个$r_i$和$r_j$使得$r_i-1 \geqslant r_j+1$即$r_i - r_j \geqslant 2$，我们把这两个次数平衡一次，变成$r_i-1$和$r_j+1$，基本不等式是
+  理想的次数平衡是每个因子的次数$r_i$都是1，如果不是如此的话，因为这$\sum_{i=1}^nr_i=n$，所以必然存在某两个$r_i$和$r_j$使得$r_i-1 \geqslant r_j+1$即$r_i - r_j \geqslant 2$，\\
+  我们把这两个次数平衡一次，变成$r_i-1$和$r_j+1$，基本不等式是
   \begin{equation*}
   (x_1^{r_i}y_2^{r_j}+x_2^{r_i}x_1^{r_j})-(x_1^{r_i-1}x_2^{r_j+1}+x_2^{r_i-1}x_1^{r_j+1})=x_1^{r_j}x_2^{r_j}(x_1-x_2)(x_1^{r_i-r_j-1}-x_2^{r_i-r_j-1}) \geqslant 0
   \end{equation*}

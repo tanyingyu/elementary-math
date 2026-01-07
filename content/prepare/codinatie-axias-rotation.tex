@@ -4,11 +4,43 @@
 
 在高级中学数学教材中，三角函数的伸缩变换已经为人所熟知，而本文要讨论的是坐标变换的一般性理论。
 
-这些变换包括平移、旋转、伸缩、对称，通常所说的位似变换可以通过伸缩变换得到，其中，平移、旋转、对称都是恒等变换，即不改变平面图形的形状和大小，或者说变换前后的图形是全等的，而位似变换前后的图象则是相似的，形状不变，大小可以改变。
+这些变换包括\emph{平移}、\emph{旋转}、\emph{伸缩}、\emph{对称}，通常所说的位似变换可以通过伸缩变换得到，
+其中，平移、旋转、对称都是恒等变换，即不改变平面图形的形状和大小，
+或者说变换前后的图形是全等的，而位似变换前后的图象则是相似的，形状不变，大小可以改变。
+
+\begin{forest}
+   % 设置 TikZ 库以使用阴影
+  % 为整棵树定义全局样式
+  for tree={
+    % 节点样式
+    minimum width=1.5cm,
+    text centered,
+    font=\itshape,
+    draw=gray, % 节点边框颜色
+    thick,     % 边框粗细
+    % 连接线样式
+    edge={-stealth, thick, gray!70}, % 使用箭头和灰色粗线
+    parent anchor=south,
+    child anchor=north,
+    % 树的布局间距
+    l sep=1cm, % 层级间距 (垂直)
+    s sep=0.3cm, % 同级节点间距 (水平)
+    % 根据层级设置颜色
+    % Level 1: 主类别
+    where level=1{fill=teal!30, edge=teal!70!black}{},
+    % Level 2: 子类别
+    where level=2{fill=blue!15 }{},
+    % Level 3: 孙类别
+    where level=3{fill=gray!10}{},
+  }
+  [坐标变换[恒等变换[平移][旋转][对称]] [位似变换[伸缩]]]
+\end{forest}
+
 
 \subsection{平移}
 
-平移变换由平移向量$\vv{s}=(a,b)$唯一确定，平面上任意一点$P$与它在变换下的像$P'$满足$\vv{PP'}=\vv{s}$为常向量，因此如果点$P$的坐标是$(x,y)$，点$P'(x',y')$的坐标将是$(x+a, y+b)$，即
+平移变换由平移向量$\vv{s}=(a,b)$唯一确定，平面上任意一点$P$与它在变换下的像$P'$满足$\vv{PP'}=\vv{s}$为常向量，
+因此如果点$P$的坐标是$(x,y)$，点$P'$的坐标$(x',y')$将是$(x+a, y+b)$，即
 \begin{equation}
   \label{eq:shift-translation-coordinate-formula}
   \left\{
@@ -24,7 +56,7 @@
   \left(
     \begin{array}{c}
       x' \\
-      y' 
+      y'
     \end{array}
   \right)
   =
@@ -38,7 +70,7 @@
   \left(
     \begin{array}{c}
       a \\
-      b 
+      b
     \end{array}
   \right)
 \end{equation}
@@ -50,7 +82,7 @@
 \end{example}
 
 \subsection{旋转}
-假如在平面直角坐标系中，有一个点的坐标是$P(x,y)$，现在我们把它绕着原点逆时针方向转动一个角度$\theta$，我们来寻求这个点的新坐标$P'=(x', y')$与原坐标之间的关系。
+假如在平面直角坐标系中，有一个点的坐标是$P=(x,y)$，现在我们把它绕着原点逆时针方向转动一个角度$\theta$，我们来寻求这个点的新坐标$P'=(x', y')$与原坐标之间的关系。
 
 设向量$\overrightarrow{OP}$与坐标系$x$轴正向成角$\alpha$，则向量$\vv{OP'}$与坐标系$x$轴正向成角$\alpha+\theta$，记向量$\overrightarrow{OP}$长度为$r$，则
 \begin{equation*}
@@ -107,8 +139,7 @@
   把上式整理为关于 $x$ 和 $y$的二元二次方程
   \begin{equation*}
     \begin{split}
-      & \cos{\theta}(\sin{\theta}-a\cos{\theta})x^2 \\
-      - & \sin{\theta}(\cos{\theta}+a\sin{\theta})y^2 \\
+      & \cos{\theta}(\sin{\theta}-a\cos{\theta})x^2 -  \sin{\theta}(\cos{\theta}+a\sin{\theta})y^2 \\
       + & [\cos{\theta}(\cos{\theta}+a\sin{\theta})-\sin{\theta}(\sin{\theta}-a\cos{\theta})]xy \\
       = & b
     \end{split}
@@ -134,7 +165,7 @@
 
 伸缩变换是以原点为基准，把平面沿着坐标轴的两个方向进行拉伸或压缩，两个方向上各有一个 \emph{伸缩因子}，分别用$\lambda(>0)$和$\mu(>0)$代表$x$和$y$方向的伸缩因子，则显然新旧坐标之间的关系是:
 \begin{equation}
-  \label{eq:scale-translation-coordinate-formula}
+  \label{eq:scale-translation-coordinate-formula-1}
   \left\{
     \begin{array}{ccc}
       x' & = & \lambda x \\
@@ -225,7 +256,7 @@
 
 那么，考虑在这样的变换下，平面上任意一点的新旧坐标关系，首先纵坐标是没有变化的，变化的是横坐标，横坐标在原来的基础上做了一个偏移，但是这个偏移量，是跟纵坐标成比例的，设比例因子为$u$，那么得到坐标变换公式
 \begin{equation}
-  \label{eq:scale-translation-coordinate-formula}
+  \label{eq:scale-translation-coordinate-formula-2}
   \left\{
     \begin{array}{ccc}
       x' & = &  x + uy \\
@@ -258,7 +289,7 @@
 
 这是对横坐标做比例偏移的结果，那么同样我们也可以对纵坐标做比例，相当于上面矩形的宽边保持不动，但把两条长边变成倾斜线段，也就是做纵向的拉扯，设对应的比例因子为$v$，那么同样可以得到变换公式
 \begin{equation}
-  \label{eq:scale-translation-coordinate-formula}
+  \label{eq:scale-translation-coordinate-formula-3}
   \left\{
     \begin{array}{ccc}
       x' & = &  x \\

@@ -1,7 +1,8 @@
-
 \documentclass{ctexbook}
-
+\listfiles
+\raggedbottom
 \input{use-packages}
+\addbibresource{book.bib} % 导入 bib 文件
 \input{cmd-env}
 
 \title{\kaishu{初等数学笔记}}
@@ -9,17 +10,22 @@
 \date{\today 编译}
 
 \begin{document}
+%\hypersetup{pageanchor=false}
 
-\maketitle
+%\maketitle
+\include{cover}
 
-\pagenumbering{Roman}    %Roman字体书写页码
-
+% 使用大写字母书写页码
+\pagenumbering{Alph}
 \include{preface}
 
-\setcounter{page}{1}   %重新开始页码
-\include{tableofcontents}
+% Roman字体书写页码
+\pagenumbering{Roman}
+\include{core/tableofcontents}
 
-\setcounter{page}{1}   %重新开始页码
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic} % 使用数字页码
+\setcounter{page}{1}   % 重新开始页码
 \mainmatter    %前言和目录页码结束，正文重新开始设置页码
 
 \include{content/prepare/prepare}
@@ -48,7 +54,10 @@
 %\addcontentsline{toc}{chapter}{参考文献}
 %\nocite{*}
 
-\input{bibliography}
+%\input{bibliography}
+
+% 打印参考文献列表
+\printbibliography[heading=bibintoc]
 
 \end{document}
 
