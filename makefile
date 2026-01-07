@@ -23,7 +23,7 @@ ASY_FILES := $(call recursive_wildcard,$(SRC_DIR),*.asy)
 PDF_FIGURES = $(patsubst $(SRC_DIR)/%.asy, $(IMAGES_PATH)/%.pdf, $(ASY_FILES))
 
 
-.PHONY: $(MAIN).pdf all clean cleanall info
+.PHONY: $(MAIN).pdf all clean cleanall info figures
 
 all:  $(OUT_DIR) $(PDF_FIGURES) $(MAIN).pdf
 
@@ -42,7 +42,7 @@ $(OUT_DIR):
 	@for dir in $(TEX_SUBDIRS); do mkdir -p $(OUT_DIR)/$$dir; done
 
 
-$(IMAGES_PATH)/%.pdf: $(SRC_DIR)/%.asy | $(IMAGES_PATH)
+$(IMAGES_PATH)/%.pdf: $(SRC_DIR)/%.asy
 	@echo "正在编译: $<"
 	@# 关键：自动创建目标文件所在的子目录（如 build/chapter1/）
 	@mkdir -p $(dir $@)
@@ -51,9 +51,8 @@ $(IMAGES_PATH)/%.pdf: $(SRC_DIR)/%.asy | $(IMAGES_PATH)
 	@# -o $(basename $@): 指定输出路径（不带扩展名）
 	asy -f pdf -o $(basename $@) $<
 
-# 创建输出
-$(IMAGES_PATH):
-	mkdir -p $(IMAGES_PATH)
+# 创建插图
+figures:$(PDF_FIGURES)
 
 # 清理所有生成的 PDF 和中间文件
 cleanimg:
