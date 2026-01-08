@@ -1,0 +1,69 @@
+%\usepackage{minitoc}
+
+% 使用 biblatex
+\usepackage[backend=biber, style=gb7714-2015, sortlocale=zh__pinyin, sorting=gbynta]{biblatex} % 引入 biblatex 宏包，使用 biber 后端和 gb7714-2015 样式
+%\usepackage[backend=biber, style=gb7714-2015]{biblatex} % 引入 biblatex 宏包，使用 biber 后端和 gb7714-2015 样式
+
+% 定制页面版式的宏包
+%\usepackage[a4paper,left=3.5cm,right=3.5cm, bottom=3.5cm,top=3.5cm]{geometry}
+\usepackage[a4paper,inner=4.5cm,outer=3cm, bottom=3.5cm,top=3.5cm]{geometry}
+
+% 用于设置图片搜索路径
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+
+% 加载 lmodern 宏包可以切换到 Latin Modern 字体，该字体完全支持 T1 编码所需的所有字符
+\usepackage{lmodern}
+\usepackage{anyfontsize}
+\usepackage{microtype}
+\emergencystretch=1.5em
+
+% 定制目录样式的宏包
+\usepackage{etoc}
+
+% 定制日期时间格式的宏包
+\usepackage[yyyymmdd]{datetime}
+\renewcommand{\dateseparator}{-}
+
+% 数学必备宏包
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% 定理和证明环境
+\usepackage{amsthm}
+\usepackage{makecell}
+
+% 插图宏包，提供插图命令 \includegraphics
+\usepackage{graphicx}
+
+% 绘制树图
+\usepackage{forest}
+\usetikzlibrary{shapes.geometric, shadows, arrows, math, calc, arrows.meta}
+\usepackage{xfp}
+
+% 好看的向量箭头符号，命令是 \vv
+\usepackage{esvect}
+
+% 数学花体，命令是\mathscr
+\usepackage{mathrsfs}
+
+% 数学粗体，用于向量或矩阵等，命令是\bm
+\usepackage{bm}
+
+% 改善表格排版质量的宏包
+\usepackage{booktabs}
+
+% 使目录和各种引用具有超链接效果
+\usepackage[colorlinks,linkcolor=black,CJKbookmarks=true,bookmarksnumbered]{hyperref}
+
+% 定制插图和表格的标题的宏包
+\usepackage[font=small,labelfont=bf,labelsep=space]{caption}
+
+\renewcommand{\textcdot}{{$\cdot$}}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "elementary-math-note"
+%%% End:

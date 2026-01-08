@@ -144,7 +144,7 @@
 \subsubsection{核心区别与联系}
 \begin{tabular}{@{}lll@{}}
 \toprule
-\textbf{特性} & \textbf{线排列 (Linear Permutation)} & \textbf{圆排列 (Circular Permutation)} \\
+  \textbf{特性} & \textbf{线排列} & \textbf{圆排列}\\
 \midrule
 \textbf{结构} & 直线（有起点/终点） & 圆环（无起点/终点） \\
 \textbf{对称性} & 无旋转对称性 & 具有旋转对称性 \\
@@ -239,9 +239,9 @@
       紧凑表示：\(\star \star ||\star ||||||||||\star \)（此处共有 \(4\) 个 \(\star \) 和 \(12\) 个 \(|\)，总计 \(16\) 个位置）
 
     \item 第 3 步：数学计算在 \(16\) 个位置中，我们只需选出 \(4\) 个位置放置星星（剩下的位置自动填入隔板）：
-      \[C(n+k-1,k)={13+4-1 \choose 4}={16 \choose 4}\]
+      \[C(n+k-1,k)={C_{16}^{4}}\]
 
-      利用组合数公式计算：\({16 \choose 4}=\frac{16\times 15\times 14\times 13}{4\times 3\times 2\times 1}=\mathbf{1820}\)
+      利用组合数公式计算：\({C_{16}^{4}}=\frac{16 \times 15 \times 14 \times 13}{4 \times 3 \times 2 \times 1}=\mathbf{1820}\)
 
       答案：不区分花色时，从52张牌中任选4张，共有 1820 种不同的牌型（点数组合）。
 
